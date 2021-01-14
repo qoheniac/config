@@ -1,101 +1,122 @@
-{
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "modules-left": ["tray", "battery", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["network", "custom/weather", "clock", "custom/poweroff", "sway/workspaces", "sway/mode"],
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
+[
+    {
+        "name": "topbar",
+        "layer": "top",
+        "position": "top",
+        "height": 30,
+        "modules-left": ["tray", "battery", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
+        "modules-center": ["sway/window", "custom/close"],
+        "modules-right": ["network", "custom/weather", "clock", "custom/poweroff", "sway/workspaces", "sway/mode"],
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
+        },
+        "idle_inhibitor": {
+            "format": "{icon}",
+            "format-icons": {
+                "activated": "",
+                "deactivated": ""
+            }
+        },
+        "tray": {
+            "icon-size": 13,
+            "spacing": 10
+        },
+        "clock": {
+            "interval": 1,
+            "format": "<b>{:%H:%M:%S}</b>",
+            "format-alt": "{:%Y-%m-%d}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        },
+        "cpu": {
+            "format": " {usage}%",
+            "tooltip": false
+        },
+        "memory": {
+            "format": " {}%"
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{icon} {temperatureC}°C",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "backlight": {
+            "device": "intel_backlight",
+            "interval": 1,
+            "on-scroll-down": "brightlight -pd 1",
+            "on-scroll-up": "brightlight -pi 1",
+            "format": "{icon} {percent}%",
+            "format-icons": ["", "", ""]
+        },
+        "battery": {
+            "bat": "BAT0",
+            "adapter": "AC",
+            "interval": 10,
+            "full-at": 99,
+            "states": {
+                "full": 99,
+                "good": 80,
+                "warning": 30,
+                "critical": 15
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": " {capacity}%",
+            "format-plugged": " {capacity}%",
+            "format-alt": "{icon} {time}",
+            "format-full": "",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "network": {
+            "format-wifi": " {essid} ({signalStrength}%)",
+            "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
+            "format-linked": " {ifname} (No IP)",
+            "format-disconnected": "",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}",
+            "on-click-right": "nm-connection-editor"
+        },
+        "pulseaudio": {
+            "scroll-step": 1,
+            "format": "{icon} {volume}%{format_source}",
+            "format-bluetooth": "{icon} {volume}%{format_source}",
+            "format-bluetooth-muted": " {icon}{format_source}",
+            "format-muted": " {format_source}",
+            "format-source": "  {volume}%",
+            "format-source-muted": " ",
+            "format-icons": {
+                "headphone": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": ["", "", ""]
+            },
+            "on-click": "pavucontrol"
+        },
+        "custom/weather": {
+            "return-type": "json",
+            "exec": "bash $HOME/.config/waybar/scripts/weather.sh",
+            "interval": 300
+        },
+        "custom/poweroff": {
+            "tooltip": false,
+            "format": "⏻",
+            "on-click": "bash $HOME/.config/waybar/scripts/poweroff.sh"
+        },
+        "custom/close": {
+            "format": "",
+            "on-click": "swaymsg kill"
         }
     },
-    "tray": {
-        "icon-size": 13,
-        "spacing": 10
-    },
-    "clock": {
-        "interval": 1,
-        "format": "<b>{:%H:%M:%S}</b>",
-        "format-alt": "{:%Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-    "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
-    },
-    "memory": {
-        "format": " {}%"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "backlight": {
-        "device": "intel_backlight",
-        "interval": 1,
-        "on-scroll-down": "brightlight -pd 1",
-        "on-scroll-up": "brightlight -pi 1",
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", ""]
-    },
-    "battery": {
-        "bat": "BAT0",
-        "adapter": "AC",
-        "interval": 10,
-        "full-at": 99,
-        "states": {
-            "full": 99,
-            "good": 80,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        "format-wifi": " {essid} ({signalStrength}%)",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-right": "nm-connection-editor"
-    },
-    "pulseaudio": {
-        "scroll-step": 1,
-        "format": "{icon} {volume}%{format_source}",
-        "format-bluetooth": "{icon} {volume}%{format_source}",
-        "format-bluetooth-muted": " {icon}{format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "  {volume}%",
-        "format-source-muted": " ",
-        "format-icons": {
-            "headphone": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-    "custom/weather": {
-        "return-type": "json",
-        "exec": "bash $HOME/.config/waybar/scripts/weather.sh",
-        "interval": 300
-    },
-    "custom/poweroff": {
-        "tooltip": false,
-        "format": "⏻",
-        "on-click": "bash $HOME/.config/waybar/scripts/poweroff.sh"
-    },
-}
+    {
+        "name": "bottombar",
+        "layer": "top",
+        "position": "bottom",
+        "height": 30,
+        "modules-center": ["wlr/taskbar"],
+        "wlr/taskbar": {
+            "format": "{icon} {app_id}",
+            "icon-size": 13,
+            "tooltip": false,
+            "on-click": "activate",
+            "on-click-middle": "close"
+        }
+    }
+]
