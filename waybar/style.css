@@ -66,8 +66,8 @@ window#waybar.chromium {
 #mode,
 #idle_inhibitor,
 #weather {
-    padding: 0 0px;
-    margin: 0 6px;
+    padding: 0 6px;
+    margin: 0 0px;
     color: #ffffff;
 }
 
