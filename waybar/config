@@ -5,10 +5,14 @@
         "position": "top",
         "height": 30,
         "modules-left": ["tray", "battery", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
-        "modules-center": ["sway/window", "custom/close"],
+        "modules-center": ["sway/window"],
         "modules-right": ["network", "custom/weather", "clock", "custom/poweroff", "sway/workspaces", "sway/mode"],
         "sway/mode": {
             "format": "<span style=\"italic\">{}</span>"
+        },
+        "sway/window": {
+            "format": "{} ",
+            "on-click": "swaymsg kill"
         },
         "idle_inhibitor": {
             "format": "{icon}",
@@ -99,10 +103,6 @@
             "tooltip": false,
             "format": "⏻",
             "on-click": "bash $HOME/.config/waybar/scripts/poweroff.sh"
-        },
-        "custom/close": {
-            "format": "",
-            "on-click": "swaymsg kill"
         }
     },
     {
