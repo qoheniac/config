@@ -23,10 +23,9 @@ set $menu swaymsg exec 'source $HOME/.bash_profile && rofi -show combi'
 output * bg ~/Pictures/Wallpapers/eso0932a.png fill
 
 # Window decorations
-title_align center
-hide_edge_borders smart
-font pango:DejaVu Sans Condensed 12
-default_border pixel 0
+default_border none
+gaps inner 5
+gaps outer -5
 
 # Colors (class border bgackground text indicator child_border)
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
