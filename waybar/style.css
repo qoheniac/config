@@ -13,6 +13,10 @@ window#waybar {
     transition-duration: .5s;
 }
 
+window#waybar.empty {
+    color: rgba(0,0,0,0);
+}
+
 .topbar {
     border-bottom: 3px solid rgba(100, 114, 125, 1);
 }
@@ -29,12 +33,12 @@ window#waybar {
 
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 #workspaces button.focused {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 #workspaces button.urgent {
@@ -43,7 +47,7 @@ window#waybar {
 
 #mode {
     background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    border-top: 3px solid #ffffff;
 }
 
 #backlight,
@@ -51,6 +55,7 @@ window#waybar {
 #clock,
 #cpu,
 #custom-poweroff,
+#custom-weather,
 #idle_inhibitor,
 #memory,
 #mode,
@@ -58,24 +63,10 @@ window#waybar {
 #pulseaudio,
 #taskbar,
 #temperature,
-#tray,
-#weather {
+#tray {
     padding: 0 6px;
     margin: 0 0px;
     color: #ffffff;
-}
-
-#window,
-#workspaces {
-    margin: 0 4px;
-}
-
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
 }
 
 @keyframes blink {

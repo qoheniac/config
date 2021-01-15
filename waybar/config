@@ -4,12 +4,9 @@
         "layer": "top",
         "position": "top",
         "height": 30,
-        "modules-left": ["tray", "battery", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
+        "modules-left": ["battery", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
         "modules-center": ["sway/window"],
-        "modules-right": ["network", "custom/weather", "clock", "custom/poweroff", "sway/workspaces", "sway/mode"],
-        "sway/mode": {
-            "format": "<span style=\"italic\">{}</span>"
-        },
+        "modules-right": ["network", "custom/weather", "clock", "custom/poweroff"],
         "sway/window": {
             "format": "{} ",
             "on-click": "swaymsg kill"
@@ -20,10 +17,6 @@
                 "activated": "",
                 "deactivated": ""
             }
-        },
-        "tray": {
-            "icon-size": 13,
-            "spacing": 10
         },
         "clock": {
             "interval": 1,
@@ -110,13 +103,22 @@
         "layer": "top",
         "position": "bottom",
         "height": 30,
+        "modules-left": ["tray"],
         "modules-center": ["wlr/taskbar"],
+        "modules-right": ["sway/workspaces", "sway/mode"],
+        "tray": {
+            "icon-size": 13,
+            "spacing": 10
+        },
         "wlr/taskbar": {
             "format": "{icon} {app_id}",
             "icon-size": 13,
             "tooltip": false,
             "on-click": "activate",
             "on-click-middle": "close"
+        },
+        "sway/mode": {
+            "format": "<span style=\"italic\">{}</span>"
         }
     }
 ]
