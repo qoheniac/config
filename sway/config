@@ -47,9 +47,7 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
     # Kill window
     bindsym $mod+Shift+q kill
-    # Bindsym $mod+Shift+q exec swaymsg -t get_tree | \
-    #     jq 'recurse(.nodes[]) | if .focused then .pid else "live" end' | \
-    #     grep -v "live" | xargs kill -s SIGTERM
+    bindsym Alt+F4 kill
 
     # Start launcher
     bindsym $mod+d exec $menu
