@@ -14,7 +14,7 @@ set $up k
 set $right l
 
 # Terminal emulator
-set $term gnome-terminal
+set $term roxterm
 
 # App launcher
 set $menu swaymsg exec -- rofi -show combi 
@@ -22,13 +22,13 @@ set $menu swaymsg exec -- rofi -show combi
 # Wallpaper
 output * bg ~/Pictures/Wallpapers/eso0932a.png fill
 
-# window decorations
+# Window decorations
 title_align center
 hide_edge_borders smart
 font pango:DejaVu Sans Condensed 12
 default_border pixel 0
 
-# colors (class border bgackground text indicator child_border)
+# Colors (class border bgackground text indicator child_border)
 client.focused          #002b36 #586e75 #fdf6e3 #268bd2
 client.focused_inactive #002b36 #073642 #839496 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
@@ -41,25 +41,26 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 #
 # Basics:
 #
-    # start terminal
+    # Start terminal
     bindsym $mod+Return exec $term
+    bindsym Ctrl+Alt+t exec $term
 
-    # kill window
+    # Kill window
     bindsym $mod+Shift+q kill
-    # bindsym $mod+Shift+q exec swaymsg -t get_tree | \
+    # Bindsym $mod+Shift+q exec swaymsg -t get_tree | \
     #     jq 'recurse(.nodes[]) | if .focused then .pid else "live" end' | \
     #     grep -v "live" | xargs kill -s SIGTERM
 
-    # start launcher
+    # Start launcher
     bindsym $mod+d exec $menu
 
-    # drag and resize windows with mouse
+    # Drag and resize windows with mouse
     floating_modifier $mod normal
 
-    # reload configuration
+    # Reload configuration
     bindsym $mod+Shift+c reload
 
-    # log out
+    # Log out
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
 #
@@ -151,19 +152,19 @@ client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 # Resizing containers:
 #
 mode "resize" {
-    # resize (direction keys)
+    # Resize (direction keys)
     bindsym $left resize shrink width 1px
     bindsym $down resize grow height 1px
     bindsym $up resize shrink height 1px
     bindsym $right resize grow width 1px
 
-    # same bindings, but for the arrow keys
+    # Same bindings, but for the arrow keys
     bindsym Left resize shrink width 1px
     bindsym Down resize grow height 1px
     bindsym Up resize shrink height 1px
     bindsym Right resize grow width 1px
 
-    # back to normal: Enter or Escape or $mod+r
+    # Back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
@@ -179,7 +180,7 @@ mode "spotify" {
     bindsym Right exec playerctl --player=spotify next
     bindsym Shift+ssharp exec bash ~/.config/sway/scripts/spotify.sh
 
-    # back to normal: Enter or Escape or $mod+r
+    # Back to normal: Enter or Escape or $mod+r
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
@@ -189,10 +190,10 @@ bindsym $mod+Shift+s mode "spotify"
 #
 # Volume:
 #
-    bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1%
-    bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1%
-    bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-    bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+    bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+    bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+    bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 #
 # Screen:
@@ -208,13 +209,11 @@ bindsym $mod+Shift+s mode "spotify"
 ### Autostart ###
 #################
 
-# Status bar
-bar {
-    swaybar_command waybar
-}
+# Bars
+exec_always 'pkill waybar; waybar'
 
 # Idle configuration
-exec --no-startup-id swayidle -w \
+exec swayidle -w \
      timeout 300 'swaylock -f -c 000000 -i "$HOME/Pictures/Wallpapers/eso0932a.png"' \
      timeout 600 'swaymsg "output * dpms off"' \
           resume 'swaymsg "output * dpms on"' \
@@ -222,11 +221,11 @@ exec --no-startup-id swayidle -w \
      lock 'swaylock -f -c 000000 -i "$HOME/Pictures/Wallpapers/eso0932a.png"'
 
 # Notifications
-exec --no-startup-id mako
+exec mako
 
 # Applets
-exec --no-startup-id protonmail-bridge --no-window
-exec --no-startup-id nextcloud
-exec --no-startup-id nm-applet --indicator
-exec --no-startup-id gammastep-indicator
-exec --no-startup-id blueman-applet
+exec nm-applet --indicator
+exec gammastep-indicator
+exec blueman-applet
+exec sleep 5 && protonmail-bridge --no-window
+exec sleep 5 && nextcloud --background
