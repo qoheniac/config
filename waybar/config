@@ -4,7 +4,7 @@
         "layer": "top",
         "position": "top",
         "height": 30,
-        "modules-left": ["battery", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
+        "modules-left": ["battery", "disk", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
         "modules-center": ["sway/window"],
         "modules-right": ["network", "custom/weather", "clock", "custom/poweroff"],
         "sway/window": {
@@ -28,8 +28,13 @@
             "format": " {usage}%",
             "tooltip": false
         },
+        "disk": {
+            "format": " {}%",
+            "tooltip-format": "{used} / {total} used"
+        },
         "memory": {
-            "format": " {}%"
+            "format": " {}%",
+            "tooltip-format": "{used:0.1f}G / {total:0.1f}G used"
         },
         "temperature": {
             "critical-threshold": 80,
