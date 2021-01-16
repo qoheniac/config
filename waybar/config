@@ -4,7 +4,7 @@
         "layer": "top",
         "position": "top",
         "height": 30,
-        "modules-left": ["battery", "disk", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
+        "modules-left": ["battery#bat1", "battery#bat2", "disk", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
         "modules-center": ["sway/window"],
         "modules-right": ["network", "custom/weather", "clock", "custom/poweroff"],
         "sway/window": {
@@ -49,22 +49,35 @@
             "format": "{icon} {percent}%",
             "format-icons": ["", "", ""]
         },
-        "battery": {
+        "battery#bat1": {
             "bat": "BAT0",
             "adapter": "AC",
             "interval": 10,
-            "full-at": 99,
             "states": {
-                "full": 99,
-                "good": 80,
-                "warning": 30,
+                "full": 100,
+                "good": 99,
+                "empty": 5
+            },
+            "format": "{icon} {capacity}%",
+            "format-charging": " {capacity}%",
+            "format-plugged": " {capacity}%",
+            "format-empty": " empty",
+            "format-full": " full",
+            "format-icons": ["", "", "", "", ""]
+        },
+        "battery#bat2": {
+            "bat": "BAT1",
+            "adapter": "AC",
+            "interval": 10,
+            "states": {
+                "full": 100,
+                "good": 99,
                 "critical": 15
             },
             "format": "{icon} {capacity}%",
             "format-charging": " {capacity}%",
             "format-plugged": " {capacity}%",
-            "format-alt": "{icon} {time}",
-            "format-full": "",
+            "format-full": " full",
             "format-icons": ["", "", "", "", ""]
         },
         "network": {

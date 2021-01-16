@@ -51,7 +51,8 @@ window#waybar.empty {
 }
 
 #backlight,
-#battery,
+#battery.bat1,
+#battery.bat2,
 #clock,
 #cpu,
 #custom-poweroff,
@@ -77,7 +78,7 @@ window#waybar.empty {
     }
 }
 
-#battery.critical:not(.charging) {
+#battery.bat2.critical:not(.charging) {
     background-color: #f53c3c;
     color: #ffffff;
     animation-name: blink;
