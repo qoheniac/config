@@ -86,7 +86,7 @@
             "format-wifi": "",
             "format-linked": "",
             "format-disconnected": "",
-            "on-click-right": "nm-connection-editor"
+            "on-click": "nm-connection-editor"
         },
         "network#ethernet": {
             "interface": "enp*",
@@ -95,7 +95,7 @@
             "format-linked": "",
             "format-disconnected": "",
             "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-            "on-click-right": "nm-connection-editor"
+            "on-click": "nm-connection-editor"
         },
         "network#wifi": {
             "interface": "wlp*",
@@ -104,14 +104,14 @@
             "format-linked": "",
             "format-disconnected": "",
             "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-            "on-click-right": "nm-connection-editor"
+            "on-click": "nm-connection-editor"
         },
         "network#vpn": {
             "interface": "tun0",
             "format": "",
             "format-disconnected": "",
             "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
-            "on-click-right": "nm-connection-editor"
+            "on-click": "nm-connection-editor"
         },
         "pulseaudio": {
             "scroll-step": 1,
@@ -158,7 +158,7 @@
             "icon-size": 13,
             "tooltip": false,
             "on-click": "activate",
-            "on-click-middle": "close"
+            "on-click-right": "close"
         },
         "sway/mode": {
             "format": "<span style=\"italic\">{}</span>"
