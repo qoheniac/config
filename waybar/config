@@ -6,7 +6,7 @@
         "height": 30,
         "modules-left": ["battery#bat1", "battery#bat2", "disk", "memory", "cpu", "temperature", "pulseaudio", "backlight", "idle_inhibitor"],
         "modules-center": ["sway/window"],
-        "modules-right": ["network", "custom/weather", "clock", "custom/poweroff"],
+        "modules-right": ["network#vpn", "network#wifi", "network#ethernet", "network#disconnected", "custom/weather", "clock", "custom/poweroff"],
         "sway/window": {
             "format": "{} ",
             "on-click": "swaymsg kill"
@@ -80,12 +80,37 @@
             "format-full": "",
             "format-icons": ["", "", "", "", ""]
         },
-        "network": {
-            "format-wifi": " {essid} ({signalStrength}%)",
-            "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-            "format-linked": " {ifname} (No IP)",
+        "network#disconnected": {
+            "tooltip-format": "No connection!",
+            "format-ethernet": "",
+            "format-wifi": "",
+            "format-linked": "",
+            "format-disconnected": "",
+            "on-click-right": "nm-connection-editor"
+        },
+        "network#ethernet": {
+            "interface": "enp*",
+            "format-ethernet": "",
+            "format-wifi": "",
+            "format-linked": "",
             "format-disconnected": "",
-            "format-alt": "{ifname}: {ipaddr}/{cidr}",
+            "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+            "on-click-right": "nm-connection-editor"
+        },
+        "network#wifi": {
+            "interface": "wlp*",
+            "format-ethernet": "",
+            "format-wifi": " {essid} ({signalStrength}%)",
+            "format-linked": "",
+            "format-disconnected": "",
+            "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+            "on-click-right": "nm-connection-editor"
+        },
+        "network#vpn": {
+            "interface": "tun0",
+            "format": "",
+            "format-disconnected": "",
+            "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
             "on-click-right": "nm-connection-editor"
         },
         "pulseaudio": {
