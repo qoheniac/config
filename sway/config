@@ -117,15 +117,11 @@ bindswitch lid:off exec systemctl suspend
 
 #
 # Layout:
-#
-    # Split
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
 
     # Switch layout
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
+    bindsym $mod+v layout toggle split
 
     # Fullscreen
     bindsym $mod+f fullscreen
@@ -170,6 +166,23 @@ mode "resize" {
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
+
+#
+# Waybar:
+#
+mode "waybar" {
+    # Hide/show bars
+    bindsym space exec killall -SIGUSR1 waybar
+
+    # Reload configuration
+    bindsym r exec killall -SIGUSR2 waybar
+
+    # Back to normal: Enter or Escape or $mod+b
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+b mode "default"
+}
+bindsym $mod+b mode "waybar"
 
 #
 # Spotify:
