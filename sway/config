@@ -193,7 +193,7 @@ mode "spotify" {
     bindsym Right exec playerctl --player=spotify next
     bindsym Shift+ssharp exec bash ~/.config/sway/scripts/spotify.sh
 
-    # Back to normal: Enter or Escape or $mod+r
+    # Back to normal: Enter or Escape or $mod+Shift+s
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+Shift+s mode "default"
