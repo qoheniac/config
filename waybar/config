@@ -133,7 +133,8 @@
         "custom/weather": {
             "return-type": "json",
             "exec": "bash $HOME/.config/waybar/scripts/weather.sh",
-            "interval": 300
+            "interval": 300,
+            "on-click": "firefox https://wttr.in"
         },
         "custom/poweroff": {
             "tooltip": false,
