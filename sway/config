@@ -232,6 +232,9 @@ exec swayidle -w \
      before-sleep 'swaylock -f -c 000000 -i "$HOME/Pictures/Wallpapers/eso0932a.png"' \
      lock 'swaylock -f -c 000000 -i "$HOME/Pictures/Wallpapers/eso0932a.png"'
 
+# Autotiling
+exec autotiling
+
 # Notifications
 exec mako
 
