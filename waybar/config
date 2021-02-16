@@ -53,6 +53,7 @@
             "bat": "BAT0",
             "adapter": "AC",
             "interval": 10,
+            "full-at": 99,
             "states": {
                 "full": 100,
                 "good": 99,
