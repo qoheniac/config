@@ -33,8 +33,11 @@ client.focused_inactive #002b36 #073642 #839496 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
 
-# Sleep when lid closed
-bindswitch lid:off exec systemctl suspend
+# Clamshell mode
+set $laptop eDP-1
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+exec_always ~/.config/sway/scripts/clamshell.sh
 
 ####################
 ### Key bindings ###
