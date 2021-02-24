@@ -3,7 +3,6 @@ case $(wofi -d << EOF | sed 's/^ *//'
     Shutdown
     Reboot
     Log off
-    Hibernate
     Sleep
     Lock
     Cancel
@@ -14,9 +13,6 @@ EOF
         ;;
     "Reboot")
         systemctl reboot
-        ;;
-    "Hibernate")
-        systemctl hibernate
         ;;
     "Sleep")
         systemctl suspend
