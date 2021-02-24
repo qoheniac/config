@@ -47,7 +47,8 @@
             "on-scroll-down": "brightlight -pd 1",
             "on-scroll-up": "brightlight -pi 1",
             "format": "{icon} {percent}%",
-            "format-icons": ["", "", ""]
+            "format-icons": ["", "", ""],
+            "on-click": "wdisplays"
         },
         "battery#bat1": {
             "bat": "BAT0",
