@@ -1,5 +1,5 @@
 #!/bin/bash
-case $(rofi -dmenu << EOF | sed 's/^ *//'
+case $(wofi -d << EOF | sed 's/^ *//'
     Shutdown
     Reboot
     Log off

@@ -17,7 +17,7 @@ set $right l
 set $term roxterm
 
 # App launcher
-set $menu swaymsg exec -- rofi -show combi
+set $menu swaymsg exec wofi 
 
 # Wallpaper
 output * bg ~/Pictures/Wallpapers/eso0932a.png fill
