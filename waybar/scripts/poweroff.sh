@@ -1,5 +1,6 @@
 #!/bin/bash
-case $(wofi -d << EOF | sed 's/^ *//'
+case $(wofi -d -L 6 -l 3 -W 100 -x -100 -y 10 \
+    -D dynamic_lines=true << EOF | sed 's/^ *//'
     Shutdown
     Reboot
     Log off
