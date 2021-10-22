@@ -1,8 +1,12 @@
 # SPECIAL SYMBOLS
-# Note: press letter first then combination for vector arrow
 <Multi_key> <backslash> <comma> : " " U202F # NARROW NO-BREAK SPACE
+<Multi_key> <minus> <minus> <space> : "–" U2013 # EN DASH
+
+# COMBINING CHARACTERS
+# Note: letter first then combining character
 <Multi_key> <v> : "⃗" U20D7 # COMBINING RIGHT ARROW ABOVE
 <Multi_key> <asciicircum> : "̂" U0302 # COMBINING CIRCUMFLEX ACCENT
+<Multi_key> <degree> : "̊" U030A # COMBINING RING ABOVE
 
 ###################################################################
 #                          G R E E K                              #
@@ -32,11 +36,11 @@
 <Multi_key> <g> <p> <i> : "π" U03C0 # GREEK SMALL LETTER PI # Attention! (cf. ψ)
 <Multi_key> <g> <r> : "ρ" U03C1 # GREEK SMALL LETTER RHO
 <Multi_key> <g> <s> : "σ" U03C3 # GREEK SMALL LETTER SIGMA
-<Multi_key> <g> <t> : "τ" U03C4 # GREEK SMALL LETTER TAU
+<Multi_key> <g> <t> <space> : "τ" U03C4 # GREEK SMALL LETTER TAU
 <Multi_key> <g> <y> : "υ" U03C5 # GREEK SMALL LETTER UPSILON
 <Multi_key> <g> <f> : "ϕ" U03D5 # GREEK PHI SYMBOL
 <Multi_key> <g> <c> : "χ" U03C7 # GREEK SMALL LETTER CHI
-<Multi_key> <g> <p> : "ψ" U03C8 # GREEK SMALL LETTER PSI
+<Multi_key> <g> <p> <space> : "ψ" U03C8 # GREEK SMALL LETTER PSI
 <Multi_key> <g> <o> : "ω" U03C9 # GREEK SMALL LETTER OMEGA
 
 # VARIANTS OF SMALL GREEK LETTERS
@@ -59,5 +63,5 @@
 <Multi_key> <g> <S> : "Σ" U03A3 # GREEK CAPITAL LETTER SIGMA
 <Multi_key> <g> <Y> : "ϒ" U03D2 # GREEK UPSILON WITH HOOK SYMBOL
 <Multi_key> <g> <F> : "Φ" U03A6 # GREEK CAPITAL LETTER PHI # GREEK SMALL LETTER PHI # Attention! (cf. φ)
-<Multi_key> <g> <P> : "Ψ" U03A8 # GREEK CAPITAL LETTER PSI
+<Multi_key> <g> <P> <space> : "Ψ" U03A8 # GREEK CAPITAL LETTER PSI
 <Multi_key> <g> <O> : "Ω" U03A9 # GREEK CAPITAL LETTER OMEGA
