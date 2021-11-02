@@ -1,6 +1,7 @@
 # SPECIAL SYMBOLS
 <Multi_key> <backslash> <comma> : " " U202F # NARROW NO-BREAK SPACE
 <Multi_key> <minus> <minus> <space> : "–" U2013 # EN DASH
+<Multi_key> <d> <e> <l> : "∇" U2207 # NABLA
 
 # COMBINING CHARACTERS
 # Note: letter first then combining character
