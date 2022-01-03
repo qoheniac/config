@@ -241,9 +241,12 @@ exec autotiling
 # Notifications
 exec mako
 
+# Change color temperature based on time of day
+exec /usr/libexec/geoclue-2.0/demos/agent
+exec gammastep-indicator
+
 # Applets
 exec nm-applet --indicator
-exec gammastep-indicator
 exec blueman-applet
 exec sleep 5 && protonmail-bridge --no-window
 exec sleep 5 && nextcloud --background
