@@ -39,6 +39,10 @@ bindswitch --reload --locked lid:on output $laptop disable
 bindswitch --reload --locked lid:off output $laptop enable
 exec_always ~/.config/sway/scripts/clamshell.sh
 
+# Systemd integration
+exec /usr/libexec/sway-systemd/session.sh --with-cleanup
+exec /usr/libexec/sway-systemd/assign-cgroups.py
+
 ####################
 ### Key bindings ###
 ####################
