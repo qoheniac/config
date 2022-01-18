@@ -163,7 +163,7 @@
             "spacing": 10
         },
         "wlr/taskbar": {
-            "format": "{icon} {app_id}",
+            "format": "{icon} {name}",
             "icon-size": 13,
             "tooltip": false,
             "on-click": "activate",
