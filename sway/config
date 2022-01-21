@@ -22,6 +22,7 @@ set $menu swaymsg exec wofi
 # Wallpaper
 output * bg ~/Pictures/Wallpapers/eso0932a.png fill
 
+
 # Window decorations
 default_border none
 gaps inner 5
@@ -222,7 +223,7 @@ bindsym $mod+Shift+s mode "spotify"
     bindsym XF86MonBrightnessDown exec brightlight -pd 5
 
     # Screenshots
-    bindsym Print exec grim -t png -g "$(slurp)" "$HOME/Pictures/Screenshots/$(date +%F\ %T).png"
+    bindsym Print exec sh ~/.config/sway/scripts/screenshot.sh
 
 #################
 ### Autostart ###
