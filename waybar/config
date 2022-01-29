@@ -134,7 +134,7 @@
         },
         "custom/weather": {
             "return-type": "json",
-            "exec": "bash $HOME/.config/waybar/scripts/weather.sh",
+            "exec": "sh $HOME/.config/waybar/scripts/weather.sh",
             "interval": 300,
             "on-click": "firefox https://wttr.in"
         },
