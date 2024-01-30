@@ -169,7 +169,6 @@
             "on-click": "activate",
             "on-click-right": "close",
             "app_ids-mapping": {
-                "eog": "org.gnome.eog",
                 "gnome-terminal-server": "org.gnome.Terminal"
             }
         },
