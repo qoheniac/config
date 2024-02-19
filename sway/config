@@ -244,7 +244,8 @@ exec mako
 
 # Network
 exec nm-applet --indicator
-exec protonvpn-cli connect --fastest
+exec sleep 5 && protonvpn-app
+exec sleep 15 && swaymsg [app_id="protonvpn-app"] kill
 
 # Change color temperature based on time of day
 exec /usr/libexec/geoclue-2.0/demos/agent
