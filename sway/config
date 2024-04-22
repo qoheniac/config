@@ -242,6 +242,9 @@ exec autotiling
 # Notifications
 exec mako
 
+# Polkit authorization
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+
 # Network
 exec nm-applet --indicator
 exec sleep 5 && protonvpn-app
