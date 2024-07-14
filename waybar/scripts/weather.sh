@@ -4,6 +4,7 @@
 # turn WiFi on if disabled
 wifi_status="$(nmcli radio wifi)"
 if [ "$wifi_status" = "disabled" ]; then
+    nmcli device set wlp58s0 autoconnect no
     nmcli radio wifi on
 fi
 
@@ -22,6 +23,7 @@ done
 # turn WiFi off if it was disabled before
 if [ "$wifi_status" = "disabled" ]; then
     nmcli radio wifi off
+    nmcli device set wlp58s0 autoconnect yes
 fi
 
 # get weather information
