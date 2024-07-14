@@ -1,6 +1,12 @@
 #!/bin/sh
 # weather information for location based on seen WiFi BSSIDs or IP as fallback
 
+# turn WiFi on if disabled
+wifi_status="$(nmcli radio wifi)"
+if [ "$wifi_status" = "disabled" ]; then
+    nmcli radio wifi on
+fi
+
 # get geographical location from close WiFi BSSIDs
 for BSSID in $(nmcli device wifi list | awk 'NR>1 && NR<12 {if ($1 != "*") {print $1}}'); do
     # https://github.com/darkosancanin/apple_bssid_locator
@@ -12,6 +18,11 @@ for BSSID in $(nmcli device wifi list | awk 'NR>1 && NR<12 {if ($1 != "*") {prin
         break;
     fi
 done
+
+# turn WiFi off if it was disabled before
+if [ "$wifi_status" = "disabled" ]; then
+    nmcli radio wifi off
+fi
 
 # get weather information
 text="$(curl -s "https://wttr.in/$LOC?format=1")"
