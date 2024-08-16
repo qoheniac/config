@@ -248,7 +248,7 @@ exec /usr/libexec/polkit-gnome-authentication-agent-1
 # Network
 exec nm-applet --indicator
 exec sleep 5 && protonvpn-app
-exec sleep 15 && swaymsg [app_id="protonvpn-app"] kill
+exec sleep 20 && swaymsg [app_id="protonvpn-app"] kill
 
 # Change color temperature based on time of day
 exec /usr/libexec/geoclue-2.0/demos/agent
