@@ -112,6 +112,13 @@ exec_always ~/.config/sway/scripts/clamshell.sh
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
 
+    # Switch back and forth
+    mode "back and forth" {
+        bindsym --release Super_L workspace back_and_forth; mode "default"
+        bindsym Escape mode "default"
+    }
+    bindsym --release Super_L mode "back and forth"
+
     # Move to workspace
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
